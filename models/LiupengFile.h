@@ -26,6 +26,8 @@ public:
     void setFileName(const std::string &fileName);
 
     int createFile();
+
+    int createFileWithLog();
 };
 
 
