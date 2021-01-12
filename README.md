@@ -15,4 +15,3 @@
 
 * Link me by `liupeng.0@outlook.com`
 * Fork this Project.
-
