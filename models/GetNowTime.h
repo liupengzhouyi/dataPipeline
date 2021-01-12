@@ -20,6 +20,7 @@ private:
     int minte = 0;
     int sec  = 0;
     std::string stringDateTime = "";
+    std::string stringLogTime = "";
 public:
 
 
@@ -53,6 +54,9 @@ public:
 
     void setStringDateTime();
 
+    const std::string &getStringLogTime() const;
+
+    void setStringLogTime();
 };
 
 

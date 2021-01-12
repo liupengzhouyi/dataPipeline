@@ -78,3 +78,16 @@ void GetNowTime::setStringDateTime() {
                                  std::to_string(this->getMinte()) + ":" +
                                  std::to_string(this->getSec());
 }
+
+const std::string &GetNowTime::getStringLogTime() const {
+    return stringLogTime;
+}
+
+void GetNowTime::setStringLogTime() {
+    GetNowTime::stringLogTime = std::to_string(this->getYear()) + "-" +
+                                std::to_string(this->getMonth()) + "-" +
+                                std::to_string(this->getDay()) + "_" +
+                                std::to_string(this->getHour()) + ":" +
+                                std::to_string(this->getMinte()) + ":" +
+                                std::to_string(this->getSec());
+}
