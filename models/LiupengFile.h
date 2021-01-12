@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <string>
-
+#include <fstream>
 
 class LiupengFile {
 
@@ -25,7 +25,7 @@ public:
 
     void setFileName(const std::string &fileName);
 
-
+    int createFile();
 };
 
 

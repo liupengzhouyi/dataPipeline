@@ -1,6 +1,7 @@
 #include <iostream>
 #include "models/GetNowTime.h"
 #include "models/LiupengLogModel.h"
+#include "models/LiupengFile.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -14,5 +15,10 @@ int main() {
     liupengLogModel.setWhy("run OK!");
     std::cout << liupengLogModel.getLogInformation() << std::endl;
     std::cout << liupengLogModel.getMarkdownInformation() << std::endl;
+
+    LiupengFile liupengFile = LiupengFile();
+    liupengFile.setFilePath("files");
+    liupengFile.setFileName("liupeng.txt");
+    liupengFile.createFile();
     return 0;
 }
