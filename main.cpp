@@ -18,7 +18,7 @@ int main() {
 
     LiupengFile liupengFile = LiupengFile();
     liupengFile.setFilePath("files");
-    liupengFile.setFileName("liupeng1.txt");
+    liupengFile.setFileName("dairy.txt");
     liupengFile.createFileWithLog();
     return 0;
 }
