@@ -28,6 +28,10 @@ public:
     int createFile();
 
     int createFileWithLog();
+
+    int addFile(std::string information);
+
+    int addFileWithLog(std::string information);
 };
 
 

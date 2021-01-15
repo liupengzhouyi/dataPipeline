@@ -81,7 +81,7 @@ std::string LiupengDairyModel::toJsonTool(std::string value) {
 
 std::string LiupengDairyModel::toMarkdownTableHead() {
     return "| name | StartDate | EndDate | Calender | Location | Notes |\n"
-           "| ---- | --------- | ------- | -------- | -------- | ----- |";
+           "| ---- | --------- | ------- | -------- | -------- | ----- |\n";
 }
 
 std::string LiupengDairyModel::toMarkdownTableItem() {
@@ -95,3 +95,49 @@ std::string LiupengDairyModel::toMarkdownTableItem() {
            " |";
 }
 
+std::string LiupengDairyModel::createMarkdownDairy() {
+    std::string returnInformation = "# Title：" + this->getName() + "\n"
+                                    + this->toMarkdownTableHeadForDairy()
+                                    + this->toMarkdownTableItemForDairy()
+                                    + "## How I think about it？\n"
+                                    + this->formatForMarkdownDairyNotes(this->getNotes()) + "\n"
+                                    // + "<div STYLE=\"page-break-after: always;\"></div>" +
+                                    "\n";
+    return returnInformation;
+}
+
+std::string LiupengDairyModel::toMarkdownTableHeadForDairy() {
+    return "| name | StartDate | EndDate | Calender | Location |\n"
+           "| ---- | --------- | ------- | -------- | -------- |\n";
+}
+
+std::string LiupengDairyModel::toMarkdownTableItemForDairy() {
+    return "| " +
+           this->getName() + " | " +
+           this->getStartDate().getStringDateTime() + " | " +
+           this->getEndDate().getStringDateTime() + " | " +
+           this->getCalender() + " | " +
+           this->getLocation() +
+           " |\n";
+}
+
+std::string LiupengDairyModel::formatForMarkdownDairyNotes(std::string notes) {
+    std::string note = "";
+    std::string str = "";
+    for (int i = 0; i < notes.length(); i++) {
+        if (notes[i] == '#') {
+            note = note + str + "\n";
+            str = "###";
+            i = i + 2;
+        } else if (notes[i] == '*') {
+            note = note + str + "\n";
+            str = "*";
+        } else if (notes[i] == '>') {
+            note = note + str + "\n";
+            str = ">";
+        } else {
+            str = str + notes[i];
+        }
+    }
+    return note;
+}

@@ -37,6 +37,7 @@ public:
 
     GetNowTime formatTime(std::string calenderInformation, std::string timeInformation, int key);
 
+    void createMarkdownTableDairy();
 
 };
 

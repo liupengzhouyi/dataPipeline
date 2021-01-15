@@ -150,4 +150,17 @@ GetNowTime LiupengDairy::formatTime(std::string calenderInformation, std::string
     return getNowTime;
 }
 
+void LiupengDairy::createMarkdownTableDairy() {
+    // 创建集合日记文件
+    LiupengFile liupengFile = LiupengFile();
+    liupengFile.setFilePath("files/dairy/output");
+    liupengFile.setFileName("2021-01-15.markdown");
+    liupengFile.createFileWithLog();
+    for (LiupengDairyModel liupengDairyModel : this->getLiupengDairyModelList()) {
+        liupengFile.addFileWithLog(liupengDairyModel.createMarkdownDairy());
+    }
+}
+
+
+
 

@@ -43,10 +43,11 @@ int main() {
     liupengDairy.readFile();
 //    std::cout << liupengDairy.formatTime("", "", 1).getStringDateTime();
     std::list list = liupengDairy.getLiupengDairyModelList();
-    std::cout << LiupengDairyModel().toMarkdownTableHead() << std::endl;
+    liupengDairy.createMarkdownTableDairy();
+    /*std::cout << LiupengDairyModel().toMarkdownTableHead() << std::endl;
     for (LiupengDairyModel item : list) {
         std::cout << item.toMarkdownTableItem() << std::endl;
-    }
+    }*/
     // std::cout << liupengDairy.readFile() << std::endl;
 
 

@@ -61,3 +61,44 @@ int LiupengFile::createFileWithLog() {
     file1 << liupengLogModel.getLogInformation() << std::endl;
     return 0;
 }
+
+int LiupengFile::addFileWithLog(std::string information) {
+    GetNowTime getNowTime = GetNowTime();
+    std::string logPath = "files/logs";
+    std::string logFileName = getNowTime.getStringLogTime() + ".txt";
+    std::string path = "../" + logPath + "/" + logFileName;
+    std::ifstream f(path,std::ios::internal);
+    LiupengLogModel liupengLogModel = LiupengLogModel();
+    if (!f) {
+        std::ofstream file(path, std::ios::app);
+        liupengLogModel.setWhat("create File[" + logFileName + "] in [" + logPath + "].");
+        liupengLogModel.setHow("success");
+        liupengLogModel.setWhy("run OK!");
+        file << liupengLogModel.getLogInformation() << std::endl;
+        file.close();
+    }
+    int key = this->addFile(information);
+    liupengLogModel.setWhat("add Information[" + information +"] in " + this->getFilePath() + this->getFileName() + ".");
+    if (key == 1) {
+        liupengLogModel.setHow("success");
+        liupengLogModel.setWhy("run OK!");
+    } else {
+        liupengLogModel.setHow("error");
+        liupengLogModel.setWhy("run ERROR!");
+    }
+    std::ofstream file1(path, std::ios::app);
+    file1 << liupengLogModel.getLogInformation() << std::endl;
+    std::cout << liupengLogModel.getLogInformation() << std::endl;
+    file1.close();
+    return 0;
+}
+
+int LiupengFile::addFile(std::string information) {
+    int return_Key = 0;
+    std::string path = "../" + this->getFilePath() + "/" + this->getFileName();
+    std::ofstream file(path, std::ios::app);
+    file << information << std::endl;
+    if (file.is_open()) return_Key = 1;
+    file.close();
+    return return_Key;
+}

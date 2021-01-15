@@ -16,7 +16,7 @@ private:
     GetNowTime endDate;
     std::string Calender;
     std::string Location;
-    std::string notes;
+    std::string notes = "";
 
 public:
     LiupengDairyModel();
@@ -54,6 +54,14 @@ public:
     std::string toMarkdownTableHead();
 
     std::string toMarkdownTableItem();
+
+    std::string toMarkdownTableHeadForDairy();
+
+    std::string toMarkdownTableItemForDairy();
+
+    std::string createMarkdownDairy();
+
+    std::string formatForMarkdownDairyNotes(std::string notes);
 };
 
 
