@@ -46,6 +46,14 @@ public:
     void setNotes(const std::string &notes);
 
     std::string toString();
+
+    std::string toJson();
+
+    std::string toJsonTool(std::string value);
+
+    std::string toMarkdownTableHead();
+
+    std::string toMarkdownTableItem();
 };
 
 

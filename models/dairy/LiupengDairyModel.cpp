@@ -55,5 +55,43 @@ void LiupengDairyModel::setNotes(const std::string &notes) {
 }
 
 std::string LiupengDairyModel::toString() {
-    return std::string();
+    return
+    "name: " + this->getName() +
+    "startDate: " + this->getStartDate().getStringDateTime() +
+    "endDate: " + this->getEndDate().getStringDateTime() +
+    "Calender: " + this->getCalender() +
+    "Location: " + this->getLocation() +
+    "notes: " + this->getNotes();
 }
+
+std::string LiupengDairyModel::toJson() {
+    return "{"
+               "name: " + this->toJsonTool(this->getName()) + ", " +
+               "startDate: " + this->toJsonTool(this->getStartDate().getStringDateTime()) + ", " +
+               "endDate: " + this->toJsonTool(this->getEndDate().getStringDateTime()) + ", " +
+               "Calender: " + this->toJsonTool(this->getCalender()) + ", " +
+               "Location: " + this->toJsonTool(this->getLocation()) + ", " +
+               "notes: " + this->toJsonTool(this->getNotes()) +
+           "}";
+}
+
+std::string LiupengDairyModel::toJsonTool(std::string value) {
+    return "\"" + value + "\"";
+}
+
+std::string LiupengDairyModel::toMarkdownTableHead() {
+    return "| name | StartDate | EndDate | Calender | Location | Notes |\n"
+           "| ---- | --------- | ------- | -------- | -------- | ----- |";
+}
+
+std::string LiupengDairyModel::toMarkdownTableItem() {
+    return "| " +
+           this->getName() + " | " +
+           this->getStartDate().getStringDateTime() + " | " +
+           this->getEndDate().getStringDateTime() + " | " +
+           this->getCalender() + " | " +
+           this->getLocation() + " | " +
+           this->getNotes() +
+           " |";
+}
+
