@@ -53,3 +53,7 @@ const std::string &LiupengDairyModel::getNotes() const {
 void LiupengDairyModel::setNotes(const std::string &notes) {
     LiupengDairyModel::notes = notes;
 }
+
+std::string LiupengDairyModel::toString() {
+    return std::string();
+}

@@ -44,6 +44,8 @@ public:
     const std::string &getNotes() const;
 
     void setNotes(const std::string &notes);
+
+    std::string toString();
 };
 
 
