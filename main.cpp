@@ -1,8 +1,10 @@
 #include <iostream>
+#include <vector>
 #include "models/GetNowTime.h"
 #include "models/LiupengLogModel.h"
 #include "models/LiupengFile.h"
 #include "models/dairy/LiupengDairyModel.h"
+#include "functions/dairy/LiupengDairy.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -29,5 +31,25 @@ int main() {
     std::cout << liupengDairyModel.toJson() << std::endl;
     std::cout << liupengDairyModel.toMarkdownTableHead() << std::endl;
     std::cout << liupengDairyModel.toMarkdownTableItem() << std::endl;
+
+
+    LiupengFile liupengFile = LiupengFile();
+    liupengFile.setFilePath("files/dairy/input");
+    liupengFile.setFileName("未命名.txt");
+    LiupengDairy liupengDairy = LiupengDairy();
+//    std::vector<std::string> v = std::vector<std::string>();
+//    liupengDairy.split("qqwertyuqwertywertywerty", 'e');
+    liupengDairy.setLiupengFile(liupengFile);
+    liupengDairy.readFile();
+    std::list list = liupengDairy.getLiupengDairyModelList();
+    std::cout << LiupengDairyModel().toMarkdownTableHead() << std::endl;
+    for (LiupengDairyModel item : list) {
+        std::cout << item.toMarkdownTableItem() << std::endl;
+    }
+    // std::cout << liupengDairy.readFile() << std::endl;
+
+
+
+
     return 0;
 }

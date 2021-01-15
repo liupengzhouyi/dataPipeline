@@ -5,6 +5,8 @@
 #ifndef DATAPIPELINE_LIUPENGDAIRY_H
 #define DATAPIPELINE_LIUPENGDAIRY_H
 #include <iostream>
+#include <list>
+#include <stringlist.h>
 #include "../../models/dairy/LiupengDairyModel.h"
 #include "../../models/LiupengFile.h"
 
@@ -12,17 +14,24 @@
 class LiupengDairy {
 
 private:
-    LiupengDairyModel liupengDairyModel;
+    std::list<LiupengDairyModel> liupengDairyModelList;
     LiupengFile liupengFile;
 
 public:
-    const LiupengDairyModel &getLiupengDairyModel() const;
 
-    void setLiupengDairyModel(const LiupengDairyModel &liupengDairyModel);
+    std::string readFile();
 
     const LiupengFile &getLiupengFile() const;
 
     void setLiupengFile(const LiupengFile &liupengFile);
+
+    void createDairyModel(std::string dairyModelInformation);
+
+    const std::list<LiupengDairyModel> &getLiupengDairyModelList() const;
+
+    void setLiupengDairyModelList(const std::list<LiupengDairyModel> &liupengDairyModelList);
+
+    std::vector<std::string> split(std::string src, char key);
 
 };
 

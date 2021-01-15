@@ -61,4 +61,3 @@ int LiupengFile::createFileWithLog() {
     file1 << liupengLogModel.getLogInformation() << std::endl;
     return 0;
 }
-
