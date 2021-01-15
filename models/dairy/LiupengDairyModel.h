@@ -11,24 +11,39 @@
 class LiupengDairyModel {
 
 private:
-    GetNowTime getNowTime;
-    std::string whathapped;
-    std::string yourthings;
+    std::string name;
+    GetNowTime startDate;
+    GetNowTime endDate;
+    std::string Calender;
+    std::string Location;
+    std::string notes;
 
 public:
     LiupengDairyModel();
 
-    const GetNowTime &getGetNowTime() const;
+    const std::string &getName() const;
 
-    void setGetNowTime(const GetNowTime &getNowTime);
+    void setName(const std::string &name);
 
-    const std::string &getWhathapped() const;
+    const GetNowTime &getStartDate() const;
 
-    void setWhathapped(const std::string &whathapped);
+    void setStartDate(const GetNowTime &startDate);
 
-    const std::string &getYourthings() const;
+    const GetNowTime &getEndDate() const;
 
-    void setYourthings(const std::string &yourthings);
+    void setEndDate(const GetNowTime &endDate);
+
+    const std::string &getCalender() const;
+
+    void setCalender(const std::string &calender);
+
+    const std::string &getLocation() const;
+
+    void setLocation(const std::string &location);
+
+    const std::string &getNotes() const;
+
+    void setNotes(const std::string &notes);
 };
 
 

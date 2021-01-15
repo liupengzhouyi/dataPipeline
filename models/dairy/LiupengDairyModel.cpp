@@ -4,32 +4,52 @@
 
 #include "LiupengDairyModel.h"
 
-LiupengDairyModel::LiupengDairyModel() {
-    this->setGetNowTime(GetNowTime());
+LiupengDairyModel::LiupengDairyModel() {}
+
+const std::string &LiupengDairyModel::getName() const {
+    return name;
 }
 
-const GetNowTime &LiupengDairyModel::getGetNowTime() const {
-    return getNowTime;
+void LiupengDairyModel::setName(const std::string &name) {
+    LiupengDairyModel::name = name;
 }
 
-void LiupengDairyModel::setGetNowTime(const GetNowTime &getNowTime) {
-    LiupengDairyModel::getNowTime = getNowTime;
+const GetNowTime &LiupengDairyModel::getStartDate() const {
+    return startDate;
 }
 
-const std::string &LiupengDairyModel::getWhathapped() const {
-    return whathapped;
+void LiupengDairyModel::setStartDate(const GetNowTime &startDate) {
+    LiupengDairyModel::startDate = startDate;
 }
 
-void LiupengDairyModel::setWhathapped(const std::string &whathapped) {
-    LiupengDairyModel::whathapped = whathapped;
+const GetNowTime &LiupengDairyModel::getEndDate() const {
+    return endDate;
 }
 
-const std::string &LiupengDairyModel::getYourthings() const {
-    return yourthings;
+void LiupengDairyModel::setEndDate(const GetNowTime &endDate) {
+    LiupengDairyModel::endDate = endDate;
 }
 
-void LiupengDairyModel::setYourthings(const std::string &yourthings) {
-    LiupengDairyModel::yourthings = yourthings;
+const std::string &LiupengDairyModel::getCalender() const {
+    return Calender;
 }
 
+void LiupengDairyModel::setCalender(const std::string &calender) {
+    Calender = calender;
+}
 
+const std::string &LiupengDairyModel::getLocation() const {
+    return Location;
+}
+
+void LiupengDairyModel::setLocation(const std::string &location) {
+    Location = location;
+}
+
+const std::string &LiupengDairyModel::getNotes() const {
+    return notes;
+}
+
+void LiupengDairyModel::setNotes(const std::string &notes) {
+    LiupengDairyModel::notes = notes;
+}
