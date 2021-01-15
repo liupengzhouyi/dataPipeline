@@ -89,3 +89,12 @@ void GetNowTime::setStringLogTime() {
                                 std::to_string(this->getMonth()) + "-" +
                                 std::to_string(this->getDay());
 }
+
+std::string GetNowTime::getStringDate() {
+    return std::to_string(this->getYear()) + "-" +
+           std::to_string(this->getMonth()) + "-" +
+           std::to_string(this->getDay());
+}
+
+
+

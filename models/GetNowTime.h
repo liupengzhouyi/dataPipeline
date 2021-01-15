@@ -57,6 +57,10 @@ public:
     const std::string &getStringLogTime() const;
 
     void setStringLogTime();
+
+    std::string getDate();
+
+    std::string getStringDate();
 };
 
 

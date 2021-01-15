@@ -49,6 +49,7 @@ void LiupengDairy::createDairyModel(std::string dairyModelInformation) {
     vStr = this->split(dairyModelInformation, '\n');
     std::string key = "";
     std::string value = "";
+    std::string dateValue = "";
     for (std::string item : vStr) {
         // std::cout << item << std::endl;
         int index = item.find(':');
@@ -57,12 +58,12 @@ void LiupengDairy::createDairyModel(std::string dairyModelInformation) {
             value = item.substr(index + 1, item.length());
             // std::cout << key << " ---- " << value << std::endl;
             if (key == "Summary") liupengDairyModel.setName(value);
-            if (key == "Date") liupengDairyModel.setCalender(this->formatCalender(value));
+            if (key == "Date") liupengDairyModel.setCalender(this->formatCalender(value).getStringDate()), dateValue = value;
             if (key == "Location") liupengDairyModel.setLocation(value);
             if (key == "Notes") liupengDairyModel.setNotes(value);
             if (key == "Time") {
-                liupengDairyModel.setStartDate(GetNowTime());
-                liupengDairyModel.setEndDate(GetNowTime());
+                liupengDairyModel.setStartDate(this->formatTime(dateValue, value, 1));
+                liupengDairyModel.setEndDate(this->formatTime(dateValue, value, 2));
             }
         } else  {
             if (key == "Location") {
@@ -102,13 +103,12 @@ std::vector<std::string> LiupengDairy::split(std::string src, char key) {
     return dest;
 }
 
-std::string LiupengDairy::formatCalender(std::string calenderInformation) {
+GetNowTime LiupengDairy::formatCalender(std::string calenderInformation) {
+    GetNowTime getNowTime = GetNowTime();
     std::string calender = "";
-    calenderInformation = "2020/11/26 to 2020/11/26";
-    std::string value = this->split(calenderInformation, ' ')[0];
+    std::string value = this->split(calenderInformation.substr(1, calenderInformation.length()), ' ')[0];
     std::vector<std::string> dateValues = std::vector<std::string>();
     dateValues = this->split(value, '/');
-    std::cout << dateValues.size() << std::endl;
     if (dateValues.size() == 3) {
         calender = calender + dateValues[0];
         if (dateValues[1].length() == 1) {
@@ -117,9 +117,37 @@ std::string LiupengDairy::formatCalender(std::string calenderInformation) {
         if (dateValues[2].length() == 1) {
             dateValues[2] = "0" + dateValues[2];
         }
-        calender = dateValues[0] + "-" + dateValues[1] + "-" + dateValues[2];
+        getNowTime.setYear(std::stoi(dateValues[0]));
+        getNowTime.setMonth(std::stoi(dateValues[1]));
+        getNowTime.setDay(std::stoi(dateValues[2]));
     }
-    return calender;
+    return getNowTime;
+}
+
+GetNowTime LiupengDairy::formatTime(std::string calenderInformation, std::string timeInformation, int key) {
+    GetNowTime getNowTime = this->formatCalender(calenderInformation);
+    timeInformation = "\t下午1:45:00 to 下午2:15:00";
+    std::vector<std::string> timeValues = std::vector<std::string>();
+    timeValues = this->split(timeInformation.substr(1, timeInformation.length()), ' ');
+    if (timeValues.size() == 3) {
+        if (key == 1) timeInformation = timeValues[0];
+        else timeInformation = timeValues[2];
+        std::vector<std::string> values = std::vector<std::string>();
+        values = this->split(timeInformation.substr(6, timeInformation.length()), ':');
+        if (timeInformation.substr(0, 6) == "下午") {
+            if (std::stoi(values[0]) == 12) getNowTime.setHour(std::stoi(values[0]));
+            else getNowTime.setHour(12 + std::stoi(values[0]));
+            getNowTime.setMinte(std::stoi(values[1]));
+            getNowTime.setSec(std::stoi(values[2]));
+        } else {
+            getNowTime.setHour(std::stoi(values[0]));
+            getNowTime.setMinte(std::stoi(values[1]));
+            getNowTime.setSec(std::stoi(values[2]));
+        }
+        getNowTime.setStringDateTime();
+    }
+    // std::cout << getNowTime.getStringDateTime() << std::endl;
+    return getNowTime;
 }
 
 

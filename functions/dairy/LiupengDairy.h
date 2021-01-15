@@ -33,7 +33,10 @@ public:
 
     std::vector<std::string> split(std::string src, char key);
 
-    std::string formatCalender(std::string calenderInformation);
+    GetNowTime formatCalender(std::string calenderInformation);
+
+    GetNowTime formatTime(std::string calenderInformation, std::string timeInformation, int key);
+
 
 };
 
