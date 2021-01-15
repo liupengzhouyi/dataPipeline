@@ -7,7 +7,6 @@
 #include "LiupengDairy.h"
 
 std::string LiupengDairy::readFile() {
-
     std::string path = "../" + this->getLiupengFile().getFilePath() + "/" + this->getLiupengFile().getFileName();
     std::ifstream  file;
     file.open(path, std::ios::out | std::ios::in );
@@ -15,12 +14,11 @@ std::string LiupengDairy::readFile() {
     std::string file_contents = "";
     while (std::getline(file, str))
     {
+        if (str == "") continue;
         std::string keyWord = str.substr(0, 5);
         if (keyWord == "EVENT") {
             // create Model
             this->createDairyModel(file_contents);
-            // std::cout << file_contents << std::endl;
-
             // 清空临时存储
             file_contents = "";
         } else {
@@ -44,7 +42,7 @@ void LiupengDairy::setLiupengFile(const LiupengFile &liupengFile) {
 }
 
 void LiupengDairy::createDairyModel(std::string dairyModelInformation) {
-    std::cout << "\'" + dairyModelInformation  + "\'" << std::endl;
+    // std::cout << "\'" + dairyModelInformation  + "\'" << std::endl;
     if (dairyModelInformation.length() < 10) return;
     LiupengDairyModel liupengDairyModel = LiupengDairyModel();
     std::vector<std::string> vStr = std::vector<std::string>();
@@ -52,14 +50,14 @@ void LiupengDairy::createDairyModel(std::string dairyModelInformation) {
     std::string key = "";
     std::string value = "";
     for (std::string item : vStr) {
-        std::cout << item << std::endl;
+        // std::cout << item << std::endl;
         int index = item.find(':');
         if (index >= 0) {
             key = item.substr(0, index);
             value = item.substr(index + 1, item.length());
-            std::cout << key << " ---- " << value << std::endl;
+            // std::cout << key << " ---- " << value << std::endl;
             if (key == "Summary") liupengDairyModel.setName(value);
-            if (key == "Date") liupengDairyModel.setCalender(value);
+            if (key == "Date") liupengDairyModel.setCalender(this->formatCalender(value));
             if (key == "Location") liupengDairyModel.setLocation(value);
             if (key == "Notes") liupengDairyModel.setNotes(value);
             if (key == "Time") {
@@ -102,6 +100,26 @@ std::vector<std::string> LiupengDairy::split(std::string src, char key) {
     }
     dest.push_back(substring);
     return dest;
+}
+
+std::string LiupengDairy::formatCalender(std::string calenderInformation) {
+    std::string calender = "";
+    calenderInformation = "2020/11/26 to 2020/11/26";
+    std::string value = this->split(calenderInformation, ' ')[0];
+    std::vector<std::string> dateValues = std::vector<std::string>();
+    dateValues = this->split(value, '/');
+    std::cout << dateValues.size() << std::endl;
+    if (dateValues.size() == 3) {
+        calender = calender + dateValues[0];
+        if (dateValues[1].length() == 1) {
+            dateValues[1] = "0" + dateValues[1];
+        }
+        if (dateValues[2].length() == 1) {
+            dateValues[2] = "0" + dateValues[2];
+        }
+        calender = dateValues[0] + "-" + dateValues[1] + "-" + dateValues[2];
+    }
+    return calender;
 }
 
 

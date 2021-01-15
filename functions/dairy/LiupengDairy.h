@@ -33,6 +33,8 @@ public:
 
     std::vector<std::string> split(std::string src, char key);
 
+    std::string formatCalender(std::string calenderInformation);
+
 };
 
 
