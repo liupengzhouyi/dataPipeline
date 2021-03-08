@@ -5,9 +5,13 @@
 #include "MdToH5Index.h"
 #include "getMarkDownPath/GetMarkDownPath.h"
 #include "getMarkDownFile/GetMarkDownFile.h"
+#include "CreateCSS/CssPath/CSSPath.h"
+#include "CreateCSS/GetCssFileInformation/GetCssFileInformation.h"
+#include "CreateCSS/CreateCSS.h"
 
 void MdToH5Index::index() {
 
+    std::string cssPath = "/Users/liupeng/CLionProjects/dataPipeline/files/liupeng.txt";
     std::string path = "/Users/liupeng/CLionProjects/dataPipeline/files/liupeng.txt";
     GetMarkDownPath *getMarkDownPath = new GetMarkDownPath();
     getMarkDownPath->setMarkDownPath(path);
@@ -19,5 +23,18 @@ void MdToH5Index::index() {
     for (auto s : getMarkDownFile->getMarkdownInformation()) {
         std::cout << s << std::endl;
     }
+
+    CreateCSS *createCss = new CreateCSS();
+    createCss->setCssPathString(cssPath);
+    createCss->init();
+    for (auto s : createCss->getCode()) {
+        std::cout << s <<std::endl;
+    }
+
+
+
+
+
+
 
 }

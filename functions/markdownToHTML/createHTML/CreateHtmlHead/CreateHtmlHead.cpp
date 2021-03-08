@@ -17,9 +17,9 @@ CreateHtmlHead::CreateHtmlHead(const std::string &title) : title(title) {
     this->addHtmlCode("<html>\n");
     this->addHtmlCode("<<head>>\n");
     this->addHtmlCode("<title>" + this->getTitle() + "</title>\n");
+
     this->addHtmlCode("</<head>>\n");
     this->addHtmlCode("<body>\n");
-
 }
 
 std::vector<std::string> &CreateHtmlHead::getCode() {
@@ -31,7 +31,3 @@ void CreateHtmlHead::addHtmlCode(std::string code) {
 }
 
 
-
-</body>
-
-</html>
