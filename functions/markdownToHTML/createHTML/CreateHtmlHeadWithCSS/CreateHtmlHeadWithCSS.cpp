@@ -7,7 +7,7 @@
 #include "../../CreateCSS/GetCssFileInformation/GetCssFileInformation.h"
 
 CreateHtmlHeadWithCSS::CreateHtmlHeadWithCSS() {
-    this->code = std::vector<std::string>;
+    this->code = std::vector<std::string>();
 
 }
 

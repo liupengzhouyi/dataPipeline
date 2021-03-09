@@ -8,6 +8,7 @@
 #include "CreateCSS/CssPath/CSSPath.h"
 #include "CreateCSS/GetCssFileInformation/GetCssFileInformation.h"
 #include "CreateCSS/CreateCSS.h"
+#include "HtmlTranslation/ToHtmlH/ToHtmlH.h"
 
 void MdToH5Index::index() {
 
@@ -33,6 +34,11 @@ void MdToH5Index::index() {
     for (auto s : createCss->getCode()) {
         std::cout << s <<std::endl;
     }
+
+    ToHtmlH *toHtmlH = new ToHtmlH();
+    toHtmlH->setMarkdownCode("## asd  ");
+    toHtmlH->translation();
+    std::cout << toHtmlH->getHtmlCode() << std::endl;
 
 
 

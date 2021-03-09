@@ -15,8 +15,6 @@ private:
 
     std::string htmlCode;
 
-private:
-
 public:
     const std::string &getMarkdownCode() const;
 
@@ -25,6 +23,13 @@ public:
     const std::string &getHtmlCode() const;
 
     void setHtmlCode(const std::string &htmlCode);
+
+    void translation();
+
+    std::string eraseLeft(std::string str);
+
+    std::string eraseRight(std::string str);
+
 };
 
 
