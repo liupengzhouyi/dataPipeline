@@ -23,6 +23,8 @@ public:
 
     GetCssFileInformation();
 
+    GetCssFileInformation(const CSSPath &cssPath);
+
     const CSSPath &getCssPath() const;
 
     void setCssPath(const CSSPath &cssPath);

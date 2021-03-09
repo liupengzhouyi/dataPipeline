@@ -39,3 +39,9 @@ void GetCssFileInformation::addCode() {
         return;
     }
 }
+
+GetCssFileInformation::GetCssFileInformation(const CSSPath &cssPath) : cssPath(cssPath) {
+    this->cssPath = cssPath;
+    this->cssCode = std::vector<std::string>();
+    this->addCode();
+}

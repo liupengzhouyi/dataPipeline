@@ -23,9 +23,7 @@ void CreateCSS::addCSSCode() {
     CSSPath *cssPath = new CSSPath();
     cssPath->setCssPath(this->cssPathString);
 
-    GetCssFileInformation *getCssFileInformation = new GetCssFileInformation();
-    getCssFileInformation->setCssPath(*cssPath);
-    getCssFileInformation->addCode();
+    GetCssFileInformation *getCssFileInformation = new GetCssFileInformation(*cssPath);
 
     for (auto code : getCssFileInformation->getCssCode()) {
         this->code.push_back(code);

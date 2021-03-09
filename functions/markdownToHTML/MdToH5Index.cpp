@@ -19,10 +19,13 @@ void MdToH5Index::index() {
 
     GetMarkDownFile *getMarkDownFile = new GetMarkDownFile();
     getMarkDownFile->setGetMarkDownPath(*getMarkDownPath);
+    getMarkDownFile->getMarkdownFile();
 
     for (auto s : getMarkDownFile->getMarkdownInformation()) {
-        std::cout << s << std::endl;
+        std::cout << ": " << s << std::endl;
     }
+
+
 
     CreateCSS *createCss = new CreateCSS();
     createCss->setCssPathString(cssPath);
@@ -30,6 +33,8 @@ void MdToH5Index::index() {
     for (auto s : createCss->getCode()) {
         std::cout << s <<std::endl;
     }
+
+
 
 
 

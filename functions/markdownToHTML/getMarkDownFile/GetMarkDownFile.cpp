@@ -18,7 +18,7 @@ void GetMarkDownFile::getMarkdownFile() {
             std::string buf;
             while (getline(fs,buf))
             {
-                std::cout << buf << std::endl;
+                // std::cout << buf << std::endl;
                 this->markdownInformation.push_back(buf);
             }
             fs.close();
