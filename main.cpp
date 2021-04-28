@@ -6,10 +6,12 @@
 #include "models/dairy/LiupengDairyModel.h"
 #include "functions/dairy/LiupengDairy.h"
 #include "functions/markdownToHTML/MdToH5Index.h"
+#include "functions/sayHello/SayHelloIndex.h"
 
 int main() {
 
-    MdToH5Index mdToH5Index = MdToH5Index();
-    mdToH5Index.index();
+//    MdToH5Index index = MdToH5Index();
+    SayHelloIndex index  =SayHelloIndex();
+    index.index();
     return 0;
 }
