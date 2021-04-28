@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing...'
+                sh 'exit 1'
             }
         }
         stage('Deploy') {
