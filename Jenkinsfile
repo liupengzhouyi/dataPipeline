@@ -7,14 +7,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                git 'https://github.com/liupengzhouyi/dataPipeline.git'
-                sh 'g++ main.cpp -o main'
+                sh 'g++ --version'
+//                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
+//                 sh 'g++ main.cpp -o main'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh './main'
+//                 sh './main'
             }
         }
         stage('Deploy') {
