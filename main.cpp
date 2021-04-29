@@ -10,7 +10,7 @@
 
 int main() {
 
-    MdToH5Index index = MdToH5Index();
+    // MdToH5Index index = MdToH5Index();
     SayHelloIndex index = SayHelloIndex();
     index.index();
 
