@@ -8,8 +8,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo 'python version:'
-                sh 'python --version'
+                echo 'python3 version:'
+                sh 'python3 --version'
                 echo 'g++ version:'
                 sh 'g++ --version'
 //                 sh 'python test.py'
