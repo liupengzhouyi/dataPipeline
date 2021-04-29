@@ -7,7 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'g++ --version'
+//                 sh 'python --version'
+//                 sh 'python test.py'
 //                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
 //                 sh 'g++ main.cpp -o main'
             }
