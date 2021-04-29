@@ -12,7 +12,7 @@ pipeline {
                 sh 'python3 --version'
                 echo 'g++ version:'
                 sh 'g++ --version'
-//                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
+                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
 //                 sh 'g++ main.cpp -o main'
             }
         }
