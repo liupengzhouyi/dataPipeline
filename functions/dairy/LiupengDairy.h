@@ -6,7 +6,6 @@
 #define DATAPIPELINE_LIUPENGDAIRY_H
 #include <iostream>
 #include <list>
-#include <stringlist.h>
 #include "../../models/dairy/LiupengDairyModel.h"
 #include "../../models/LiupengFile.h"
 
