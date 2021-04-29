@@ -10,9 +10,9 @@
 
 int main() {
 
-//    MdToH5Index index = MdToH5Index();
-//    SayHelloIndex index = SayHelloIndex();
-//    index.index();
+    MdToH5Index index = MdToH5Index();
+    SayHelloIndex index = SayHelloIndex();
+    index.index();
 
     std::cout << "Hello liupeng!, Now you can using Jenkins to build cpp project and test it!" << std::endl;
     return 0;
