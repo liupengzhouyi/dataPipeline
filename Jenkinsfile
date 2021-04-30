@@ -1,8 +1,8 @@
 pipeline {
-    //agent any
-    agent {
-        label 'cpp'
-    }
+    agent any
+    //agent {
+    //    label 'cpp'
+    //}
 
     stages {
         stage('Build') {
