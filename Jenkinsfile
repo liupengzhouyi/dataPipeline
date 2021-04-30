@@ -1,26 +1,18 @@
 pipeline {
     agent any
-    //agent {
-    //    label 'cpp'
-    //}
+//     agent {
+//         label 'cpp'
+//     }
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo 'python3 version:'
-                sh 'python3 --version'
-                echo 'g++ version:'
-                sh 'g++ --version'
                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
-                sh 'pwd'
-                sh 'ls -l'
                 // sh 'mkdir build'
-                sh 'ls -l'
                 sh 'cd build'
-                sh 'pwd'
-                sh 'ls -l'
-                sh 'cmake ..'
+                sh 'cmake'
+                sh 'make -j4'
             }
         }
         stage('Test') {
