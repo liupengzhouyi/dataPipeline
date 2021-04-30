@@ -10,7 +10,11 @@ pipeline {
                 echo 'Building..'
                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
                 // sh 'mkdir build'
-                sh 'cd build'
+                sh script:'''
+                    echo "This is start $(pwd)"
+                    cd build
+                    echo "This is $(pwd)"
+                '''
                 sh 'pwd'
                 sh 'ls -l'
                 sh 'cmake ..'
