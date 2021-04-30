@@ -13,10 +13,13 @@ pipeline {
                 echo 'g++ version:'
                 sh 'g++ --version'
                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
+                sh 'pwd'
+                sh 'ls -l'
                 sh 'mkdir build'
+                sh 'ls -l'
                 sh 'cd build'
-                sh 'cmake ..'
-                sh 'make -j4'
+                sh 'pwd'
+                sh 'ls -l'
             }
         }
         stage('Test') {
