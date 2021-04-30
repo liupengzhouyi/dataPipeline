@@ -1,8 +1,8 @@
 pipeline {
     agent any
-//     agent {
-//         label 'cpp'
-//     }
+    //agent {
+    //    label 'cpp'
+    //}
 
     stages {
         stage('Build') {
@@ -13,10 +13,14 @@ pipeline {
                 echo 'g++ version:'
                 sh 'g++ --version'
                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
-                sh 'mkdir build'
+                sh 'pwd'
+                sh 'ls -l'
+                // sh 'mkdir build'
+                sh 'ls -l'
                 sh 'cd build'
+                sh 'pwd'
+                sh 'ls -l'
                 sh 'cmake ..'
-                sh 'make -j4'
             }
         }
         stage('Test') {
