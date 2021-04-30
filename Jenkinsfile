@@ -14,20 +14,22 @@ pipeline {
                     echo "This is start $(pwd)"
                     cd build
                     echo "This is $(pwd)"
+                    cmake ..
+                    ls -l
+                    make -j4
+                    ls -l
                 '''
-                sh 'pwd'
-                sh 'ls -l'
-                sh 'cmake ..'
-                sh 'ls -l'
-                sh 'make -j4'
-                sh 'ls -l'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
                 sh 'python3 test.py'
-                sh './dataPipeline'
+                sh script:'''
+                    echo "This is start $(pwd)"
+                    './dataPipeline'
+                    echo "This is $(pwd)"
+                '''
             }
         }
         stage('Deploy') {
