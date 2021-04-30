@@ -11,8 +11,12 @@ pipeline {
                 git 'https://github.com/liupengzhouyi/dataPipeline.git'
                 // sh 'mkdir build'
                 sh 'cd build'
-                sh 'cmake'
+                sh 'pwd'
+                sh 'ls -l'
+                sh 'cmake ..'
+                sh 'ls -l'
                 sh 'make -j4'
+                sh 'ls -l'
             }
         }
         stage('Test') {
