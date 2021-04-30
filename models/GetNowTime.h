@@ -13,14 +13,14 @@ class GetNowTime {
 private:
     time_t now;
     tm *ltm;
-    int year = 0;
-    int month = 0;
-    int day = 0;
-    int hour = 0;
-    int minte = 0;
-    int sec  = 0;
-    std::string stringDateTime = "";
-    std::string stringLogTime = "";
+    int year;
+    int month;
+    int day;
+    int hour;
+    int minte;
+    int sec;
+    std::string stringDateTime;
+    std::string stringLogTime;
 public:
 
 

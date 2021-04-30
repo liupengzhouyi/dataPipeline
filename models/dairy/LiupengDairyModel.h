@@ -16,7 +16,7 @@ private:
     GetNowTime endDate;
     std::string Calender;
     std::string Location;
-    std::string notes = "";
+    std::string notes;
 
 public:
     LiupengDairyModel();
